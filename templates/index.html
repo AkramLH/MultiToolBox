@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    homepage
+{% endblock title %}
+
+{% block content %}
+    <h1>ini halaman utama</h1>
+    <ul>
+        <li><a href="{% url 'guess' %}">guess number</a></li>
+        <li><a href="{% url 'temp' %}">temperature converter</a></li>
+        <li><a href="{% url 'weight' %}">weight calculation</a></li>
+    </ul>
+{% endblock content %}
