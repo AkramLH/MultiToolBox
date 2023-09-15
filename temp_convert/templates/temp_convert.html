@@ -5,6 +5,14 @@
 {% endblock title %}
 
 {% block content %}
-    <h1>ini temperatur converter</h1>
+<h1>Temperature Converter</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Convert</button>
+</form>
+{% if result is not None %}
+<h2>Result:</h2>
+<p>{{ temperature }} {{ form.from_unit.value }} is equivalent to {{ result }} {{ form.to_unit.value }}</p>
+{% endif %}
 {% endblock content %}
-
