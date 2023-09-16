@@ -6,5 +6,28 @@
 
 {% block content %}
     <h1>ini guess</h1>
+    
+    {% if berhasil %}
+        <div>Selamat!! kamu berhasil dalam percobaan butuh {{kali}} kali</div>
+        <br>
+        <form method="post" action="{% url 'guess' %}">
+            {% csrf_token %}
+            <input type="submit" value="Start new game">
+        </form>
+    {% elif kali > 0 %}
+        <div>coba lagi!! kamu menebak {{no_tertebak}}. petunjuknya adalah : {{hint}}</div>
+    {% else %}
+        <div>Selamat Datang</div>
+    {% endif %}
+
+    
+    {% if not berhasil %}
+        <form method="post" action="{% url 'guess' %}">
+            <label for="guess_game">Guess a number: </label>
+            <input id="tebakan" type="number" name="tebakan" value="" required>
+            <input type="submit" value="OK">
+        </form>
+    {% endif %}
+        
 {% endblock content %}
 

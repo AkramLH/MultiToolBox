@@ -8,7 +8,7 @@ from weight_count.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index, name='index'),
+    path('', index, name='home'),
     path('guess/', include('guess_number.urls')),
     path('temp/', include('temp_convert.urls')),
     path('weight/', include('weight_count.urls')),
